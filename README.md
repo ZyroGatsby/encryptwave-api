@@ -24,6 +24,6 @@ uvicorn main:app --reload
 
 Open [http://localhost:8000](http://localhost:8000) with your browser to see the result.
 
-Open [http://localhost:8000/generate](http://localhost:8000/generate) with your browser to generate unique identifier.
+Open [http://localhost:8000/encode](http://localhost:8000/encode) with your browser to encrypt password.
 
 Open [http://localhost:8000/docs](http://localhost:8000/docs) to previeew the documentation
