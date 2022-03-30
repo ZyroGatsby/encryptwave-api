@@ -9,8 +9,8 @@ class Password(BaseModel):
 app = FastAPI()
 
 origins = [
-    "http://search-smartly-ma3u143xd-zyrogatsby.vercel.app",
-    "https://search-smartly-ma3u143xd-zyrogatsby.vercel.app",
+    "http://search-smartly-6d47ginnn-zyrogatsby.vercel.app",
+    "https://search-smartly-6d47ginnn-zyrogatsby.vercel.app",
     "http://localhost",
     "http://localhost:3000",
 ]
