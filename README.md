@@ -1,5 +1,5 @@
 # Permutation Cipher Python's FastApi Implementation
-Backend to Full STack Permutation Cipher Test in React
+Backend to Full Stack Permutation Cipher Test in React
 
 ## Getting Started
 
