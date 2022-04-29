@@ -2,15 +2,13 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 
-class Password(BaseModel):
-    password: str
-    key: str
-
 app = FastAPI()
 
 origins = [
     "http://search-smartly-6d47ginnn-zyrogatsby.vercel.app",
     "https://search-smartly-6d47ginnn-zyrogatsby.vercel.app",
+    "http://encryptwave.vercel.app/",
+    "https://encryptwave.vercel.app/",
     "http://localhost",
     "http://localhost:3000",
 ]
@@ -22,12 +20,25 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
+# Models
+class Password(BaseModel):
+    password: str
+    key: str
 
+class Message(BaseModel):
+    text: str
+    shift: int
+
+# Helper Function
+def caesar_shift(char, key):
+    return chr(ord('A') + (ord(char) - ord('A') + key) % 26)
+
+# Routes
 @app.get("/")
 async def read_root():
-    return {"Hello from SearchSmartly"}
+    return {"Hello from Encryptwave"}
 
-@app.post("/encode")
+@app.post("/substitution/encode")
 async def encode_password(password: Password):
     alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
     text = password.password.upper()
@@ -40,4 +51,19 @@ async def encode_password(password: Password):
         else:
             result += i
 
+    return result
+
+@app.post("/caesar/encode")
+async def encode_shift(message: Message):
+    text = message.text.upper()
+    shift = message.shift
+    punctuation = " .,!"
+    result = ""
+
+    for i in text:
+        if i not in punctuation:
+            result += caesar_shift(i, shift)
+        else:
+            result += i
+    
     return result
