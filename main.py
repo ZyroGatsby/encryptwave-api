@@ -5,10 +5,8 @@ from pydantic import BaseModel
 app = FastAPI()
 
 origins = [
-    "http://search-smartly-6d47ginnn-zyrogatsby.vercel.app",
-    "https://search-smartly-6d47ginnn-zyrogatsby.vercel.app",
-    "http://encryptwave.vercel.app/",
-    "https://encryptwave.vercel.app/",
+    "http://encryptwave.vercel.app",
+    "https://encryptwave.vercel.app",
     "http://localhost",
     "http://localhost:3000",
 ]
